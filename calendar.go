@@ -10,7 +10,6 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"github.com/google/uuid"
 	"github.com/jordic/goics"
 	"github.com/patrickmn/go-cache"
 )
@@ -133,7 +132,7 @@ func (e Events) EmitICal() goics.Componenter {
 		s.AddProperty(k, v)
 
 		s.AddProperty("SUMMARY", ev.Title)
-		s.AddProperty("UID", uuid.New().String())
+		// s.AddProperty("UID", uuid.New().String())
 
 		// Append to calendar
 		c.AddComponent(s)
